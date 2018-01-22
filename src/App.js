@@ -4,15 +4,29 @@ import { connect } from 'react-redux'
 import Login from "./components/login"
 import RoomList from "./components/roomList"
 import GameRoom from "./components/gameRoom"
+import { Layout } from 'antd'
+import loginBackgroundImg from "./imgs/login_background.jpeg"
+
+const { Content } = Layout
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div>
-          <Route exact path="/" component={Login} />
-          <Route exact path="/roomList" component={RoomList}/>
-          <Route path="/room/:roomNo" component={GameRoom}/>
+          <Layout>
+            <Content style={{ 
+              backgroundImage: `url(${loginBackgroundImg})`,
+              backgroundRepeat: 'no-repeat', 
+              backgroundSize: 'cover', 
+              backgroundPosition: 'center',
+              height: '650px',
+              position: 'relative'}}>
+              <Route exact path="/" component={Login} />
+              <Route exact path="/roomList" component={RoomList}/>
+              <Route path="/room/:roomNo" component={GameRoom}/>
+            </Content>
+          </Layout>
         </div>
       </Router>
     )

@@ -44,24 +44,24 @@ class RoomList extends Component {
     if (this.state.redirectToGameRoom) {  
       return <Redirect to={`/room/${this.state.redirectToGameRoom}`}/>
     }
-//{room.currentNum + "/" + room.maxNum}
     const {rooms} = this.state
     const gridStyle = {
       width: '25%',
-      textAlign: 'center'
+      textAlign: 'left'
     }
     return (
-      <div style={{ background: '#ECECEC', padding: '30px' }}>
-        <Card title="游戏大厅" hoverable="true">
-          {
-            rooms.map(room => <Card.Grid id={room.roomNo} key={room.roomNo} style={gridStyle} onClick={this.handleEnterRoom.bind(this, room.roomNo)}>
-              <p>房间号:{room.roomNo}</p>
-              <p>状态:{room.isGaming ? "游戏中" : "未开始"}</p>
-              <p>人数:<Rate character={<Icon type="user" />} disabled defaultValue={room.currentNum} count={room.maxNum}/></p>
-            </Card.Grid>)
-          }
-        </Card>
-      </div>
+      <Card title="游戏大厅" hoverable="true" style={{
+        width: 800, position: 'absolute', left: '50%', top: '50%',
+        transform: 'translateX(-50%) translateY(-50%)', textAlign: 'center'
+      }}>
+        {
+          rooms.map(room => <Card.Grid id={room.roomNo} key={room.roomNo} style={{...gridStyle}} onClick={this.handleEnterRoom.bind(this, room.roomNo)}>
+            <p>房间号码：{room.roomNo}</p>
+            <p>游戏状态：{room.isGaming ? "游戏中" : "未开始"}</p>
+            当前玩家：<Rate character={<Icon type="user" />} disabled defaultValue={room.currentNum} count={room.maxNum}/>
+          </Card.Grid>)
+        }
+      </Card> 
     )
   }
 }
