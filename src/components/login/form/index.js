@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Form, Icon, Input, Button } from 'antd'
-import { userLogin } from "../../api/http/user"
+import { userLogin } from "../../../api/http/user"
 import { Redirect } from 'react-router-dom'
-import "./login.css"
+import "./index.css"
 
 const FormItem = Form.Item;
 
@@ -22,7 +22,7 @@ class LoginForm extends Component {
         try {
           const result = await userLogin(values.userName)
           this.saveUserInfo(result.data.userId)
-          this.setState({redirectToRoomList: true})
+          this.setState({ redirectToRoomList: true })
         } catch (e) {
           this.props.form.setFields({
             userName: {

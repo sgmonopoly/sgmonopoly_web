@@ -1,0 +1,55 @@
+.outer-box {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  flex-direction: column;
+  vertical-align: top;
+  .td {
+    display: -webkit-box;
+    flex-direction: row;
+    vertical-align: top;
+    flex: 1;
+    overflow: hidden;
+    .lcd {
+
+    }
+
+    .ccd {
+      flex: 1;
+
+      .center-container-dom{
+        .top {
+          .block {
+            display: inline-block;
+            box-sizing: border-box;
+            width: 50%;
+            font-size: 18px;
+            padding: 10px;
+            vertical-align: top;
+            .left {
+              color: #333333;
+            }
+
+            .right {
+              color: #666666;
+              padding-left: 10px;
+            }
+          }
+        }
+        .bottom {
+          .game {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .rcd {
+      margin: 10px 20px;
+    }
+  }
+
+  .bcd {
+    background-color: #0f6ab4;
+  }
+}

@@ -3,6 +3,8 @@ import { Card, message, Rate, Icon } from 'antd'
 import { getRooms, enterRoom } from "../../api/http/roomList"
 import { Redirect } from 'react-router-dom'
 
+import "./index.css"
+
 class RoomList extends Component {
 
   constructor(props){
@@ -25,9 +27,13 @@ class RoomList extends Component {
 
   componentDidMount() {
     this.updateRoom()
-    setInterval(() => {
+    this.timer = setInterval(() => {
       this.updateRoom()
     }, 5000)
+  }
+
+  componentWillUnmount(){
+    this.timer = clearInterval(this.timer)
   }
 
   handleEnterRoom = async roomNo => {
@@ -50,9 +56,8 @@ class RoomList extends Component {
       textAlign: 'left'
     }
     return (
-      <Card title="游戏大厅" hoverable="true" style={{
-        width: 800, position: 'absolute', left: '50%', top: '50%',
-        transform: 'translateX(-50%) translateY(-50%)', textAlign: 'center'
+      <Card title="游戏大厅" hoverable="true" className="room_list_main_card" style={{
+        width: 800
       }}>
         {
           rooms.map(room => <Card.Grid id={room.roomNo} key={room.roomNo} style={{...gridStyle}} onClick={this.handleEnterRoom.bind(this, room.roomNo)}>

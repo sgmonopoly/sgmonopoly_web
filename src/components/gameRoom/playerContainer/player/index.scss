@@ -1,0 +1,77 @@
+.player {
+  align-items: center;
+  overflow: hidden;
+  border-radius: 5px;
+  border: solid 1px black;
+  width: 160px;
+  white-space: nowrap;
+  margin: 10px;
+  box-shadow: 2px 2px 5px #888888;
+  .left{
+    .player-pic {
+      width: 80px;
+      height: 80px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    display: inline-block;
+    vertical-align: top;
+    .name {
+      width: 80px;
+      height: 30px;
+      line-height: 30px;
+      color: white;
+      font-size: 12px;
+      text-align: center;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      i {
+        display: none;
+      }
+    }
+    .player-pic-mask {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      filter: alpha(opacity=60);
+      background-color: #777;
+      opacity:0;
+      text-align: center;
+      .kick{
+        position: relative;
+        top: 50%;
+        cursor:pointer;
+      }
+    }
+  }
+  .right {
+    box-sizing: border-box;
+    padding: 5px;
+    display: inline-block;
+    width:  80px;
+    height: 110px;
+    background-color: #ffffff;
+    vertical-align: middle;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    .text {
+      color: #666666;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+    .outer-city {
+      text-overflow: ellipsis;
+      color: #999999;
+      font-size: 12px;
+      white-space: normal;
+      word-break:break-all;
+      display:-webkit-box;
+      -webkit-line-clamp:3;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+      display: -webkit-box;
+    }
+  }
+}
